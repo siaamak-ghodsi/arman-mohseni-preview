@@ -337,7 +337,7 @@
     /* ─── MOBILE ─── */
     @media (max-width: 720px) {
       nav { padding: 20px 24px; }
-      .nav-links { display: none; }
+      .nav-links { display: flex; flex-wrap: wrap; gap: 16px; justify-content: flex-end; }
       .hero { padding: 0 24px 64px; }
       section { padding: 80px 24px; }
       .divider { margin: 0 24px; }
@@ -428,26 +428,23 @@
 #work .dir-meta {
   font-size: 13px;
 }
-/* Lock homepage and about, allow work to scroll */
+/* Preview: normal page scroll so Work + film links are reachable */
 html, body {
-  overflow: hidden;
-  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: auto;
 }
 
 #about {
-  height: 100vh;
-  overflow: hidden;
+  min-height: auto;
+  height: auto;
+  overflow: visible;
 }
 
 #work {
-  height: 100vh;
-  overflow-y: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-#work::-webkit-scrollbar {
-  display: none;
+  min-height: auto;
+  height: auto;
+  overflow: visible;
 }
 .film-card, .dir-card {
   text-decoration: none;
@@ -462,8 +459,8 @@ html, body {
   gap: 32px;
 }
 #about {
-  height: 100vh;
-  overflow: hidden;
+  height: auto;
+  overflow: visible;
   padding: 110px 52px;
 }
 
@@ -523,3 +520,8 @@ nav {
 
 /* preview: always show */
 .reveal { opacity: 1 !important; transform: none !important; }
+
+
+/* PREVIEW film-card hint */
+.film-card { display: block !important; }
+.film-card .film-title::after { content: " →"; opacity: 0.5; }
