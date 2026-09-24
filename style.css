@@ -520,3 +520,6 @@ nav {
   text-decoration: underline;
   text-underline-offset: 5px;
 }
+
+/* preview: always show */
+.reveal { opacity: 1 !important; transform: none !important; }
