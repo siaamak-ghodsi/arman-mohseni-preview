@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stockholm — Arman Mohseni</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    html, body {
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: 100%;
+      background: #090909;
+      color: #E4DFD7;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 52px;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: #E4DFD7;
+      text-decoration: none;
+    }
+
+    .back-link {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #525252;
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+
+    .back-link:hover { color: #E4DFD7; }
+
+    /* PROJECT LAYOUT */
+    .project-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+      padding-top: 90px;
+    }
+
+    /* LEFT — VIDEO */
+    .project-video {
+      position: sticky;
+      top: 90px;
+      height: calc(100vh - 90px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      background: #090909;
+    }
+
+    .video-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* RIGHT — INFO */
+    .project-info {
+      padding: 60px 52px 100px 40px;
+      border-left: 1px solid #1A1A1A;
+      overflow-y: auto;
+    }
+
+    .project-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .project-type {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #B8955A;
+      margin-bottom: 52px;
+    }
+
+    /* SECTIONS */
+    .info-section {
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid #1A1A1A;
+    }
+
+    .info-section:last-child {
+      border-bottom: none;
+    }
+
+    .info-label {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #B8955A;
+      margin-bottom: 20px;
+    }
+
+    .info-text {
+      font-size: 14px;
+      line-height: 1.75;
+      color: #C8C3BB;
+      max-width: 480px;
+    }
+
+    /* CAST TABLE */
+    .cast-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .cast-table tr {
+      border-bottom: 1px solid #1A1A1A;
+    }
+
+    .cast-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .cast-table td {
+      padding: 12px 0;
+      font-size: 13px;
+      color: #C8C3BB;
+    }
+
+    .cast-table td:first-child {
+      color: #525252;
+      width: 45%;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* SPECS TABLE */
+    .specs-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .specs-table tr {
+      border-bottom: 1px solid #1A1A1A;
+    }
+
+    .specs-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .specs-table td {
+      padding: 12px 0;
+      font-size: 13px;
+      color: #C8C3BB;
+    }
+
+    .specs-table td:first-child {
+      color: #525252;
+      width: 45%;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      .project-wrap { grid-template-columns: 1fr; padding-top: 80px; }
+      .project-video { position: relative; top: 0; height: auto; padding: 24px; }
+      .project-info { padding: 40px 24px 80px; border-left: none; border-top: 1px solid #1A1A1A; }
+    }
+    .nav-logo {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.nav-logo:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class='nav-logo' href='/'>Home</a>
+    <a class='back-link' href='/#work'>← Back to Work</a>
+  </nav>
+
+  <!-- PROJECT -->
+  <div class="project-wrap">
+
+    <!-- LEFT — VIDEO -->
+    <div class="project-video">
+      <div class="video-container">
+        <!--
+          YOUTUBE EMBED:
+          1. Go to your YouTube video
+          2. Click Share → Embed
+          3. Copy the src URL (looks like: https://www.youtube.com/embed/XXXXXXXXXXX)
+          4. Paste it in the src below, replacing the placeholder
+        -->
+        <iframe
+          src="https://www.youtube.com/embed/mapRj-Wx0a8"
+          title="Stockholm"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <!-- RIGHT — INFO -->
+    <div class="project-info">
+
+      <h1 class="project-title">Stockholm</h1>
+      <p class="project-type">2024 — Short Film</p>
+
+      <!-- SYNOPSIS -->
+      <div class="info-section">
+        <p class="info-label">Synopsis</p>
+        <p class="info-text">
+          On the day of her farewell party, a young woman and her boyfriend arrive at a villa before the other guests. A forgotten key leaves them waiting outside, sharing an unexpected moment together before she leaves for Stockholm.
+        </p>
+      </div>
+
+      <!-- CAST & CREW -->
+      <div class="info-section">
+        <p class="info-label">Cast &amp; Crew</p>
+        <table class="cast-table">
+          <tr>
+            <td>Director</td>
+            <td>Arman Mohseni</td>
+          </tr>
+          <tr>
+            <td>Writer</td>
+            <td>Arman Mohseni</td>
+          </tr>
+          <tr>
+            <td>Producer</td>
+            <td>Arman Mohseni</td>
+          </tr>
+          <tr>
+            <td>Director of Photography</td>
+            <td>Ali Rabiei</td>
+          </tr>
+          <tr>
+            <td>Editor</td>
+            <td>Arman Mohseni</td>
+          </tr>
+          <tr>
+            <td>Sound Design</td>
+            <td>Arman Mohseni</td>
+          </tr>
+          <tr>
+            <td>Lead Actor</td>
+            <td>Abbas Saberi</td>
+          </tr>
+          <tr>
+            <td>Lead Actress</td>
+            <td>Delshad Vizhe</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- TECHNICAL SPECIFICATIONS -->
+      <div class="info-section">
+        <p class="info-label">Technical Specifications</p>
+        <table class="specs-table">
+          <tr>
+            <td>Format</td>
+            <td>Digital</td>
+          </tr>
+          <tr>
+            <td>Aspect Ratio</td>
+            <td>16:9</td>
+          </tr>
+          <tr>
+            <td>Runtime</td>
+            <td>14 min</td>
+          </tr>
+          <tr>
+            <td>Language</td>
+            <td>Persian</td>
+          </tr>
+          <tr>
+            <td>Color</td>
+            <td>Color</td>
+          </tr>
+          <tr>
+            <td>Country</td>
+            <td>Iran</td>
+          </tr>
+          <tr>
+            <td>Year</td>
+            <td>2021</td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

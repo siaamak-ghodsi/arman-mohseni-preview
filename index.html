@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arman Mohseni</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+   <a class='nav-logo' href='/' id='home-link'>Home</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="https://fleetingdigital.substack.com/" target="_blank">Writing</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <p class="hero-eyebrow">Filmmaker &amp; Creative Director</p>
+    <h1 class="hero-name">Arman<br><em>Mohseni</em></h1>
+    <p class="hero-sub"> Tehran based independent filmmaker and creative director. </p>
+  </header>
+
+  <hr class="divider" />
+
+  <!-- ABOUT -->
+  <section id="about">
+  <p class="section-label">About</p>
+  <div class="about-inner">
+    <div class="about-left">
+      <p class="about-text reveal">
+        Arman Mohseni (Tehran, 1997) is an Iranian filmmaker whose works explore themes of memory, uncertainty, and collective anxiety. His films often drift between the real and the imagined, reflecting a quiet disorientation that echoes both personal and societal unease. Alongside his film work, he directs for brands and artists seeking a similar visual language.
+      </p>
+      <div class="about-details reveal">
+        <div>
+          <p class="detail-label">Based</p>
+          <p class="detail-value">Tehran</p>
+        </div>
+        <div>
+          <p class="detail-label">Disciplines</p>
+          <p class="detail-value">Film · Creative Direction · Visual Identity</p>
+        </div>
+        <div>
+          <p class="detail-label">Contact</p>
+          <p class="detail-value">mohseniiarman@gmail.com</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-right">
+      <img src="images/portrait.webp" alt="Arman Mohseni" class="about-portrait" />
+    </div>
+  </div>
+</section>
+
+  <hr class="divider" />
+
+  <!-- WORK -->
+  <section id="work">
+    <p class="section-label">Work</p>
+
+    <!-- FILMS -->
+    <p class="sub-label">Films</p>
+    <div class="film-grid">
+
+      <a class='film-card reveal' href='/films/a-cat-escaped'>
+        <div class="film-thumb ">
+         <img src="images/acat.png" alt="Film Title" />
+        </div>
+        <div class="film-info">
+          <span class="film-title">A Cat Escaped</span>
+          <span class="film-meta">2025 — Short Film</span>
+        </div>
+      </a>
+
+      <a class='film-card reveal' href='/films/stockholm'>
+        <div class="film-thumb">
+          <img src="images/stockholm.png" alt="Film Title" />
+        </div>
+        <div class="film-info">
+          <span class="film-title">Stockholm</span>
+          <span class="film-eta">2021 — Short Film</span>
+        </div>
+      </a>
+
+      <a class='film-card reveal' href='/films/detective'>
+        <div class="film-thumb">
+          <img src="images/otherside.png" alt="Film Title" />
+        </div>
+        <div class="film-info">
+          <span class="film-title">Other Side of The Earth</span>
+          <span class="film-meta">2023 — Short Film</span>
+        </div>
+      </a>
+
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+<script>
+  const homeLink = document.getElementById('home-link');
+
+  function updateHomeLink() {
+    const hash = window.location.hash;
+    if (hash === '#about' || hash === '#work') {
+      homeLink.style.display = 'block';
+    } else {
+      homeLink.style.display = 'none';
+    }
+  }
+
+  updateHomeLink();
+  window.addEventListener('hashchange', updateHomeLink);
+</script>
+</body>
+</html>
