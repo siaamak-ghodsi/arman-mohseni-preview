@@ -391,10 +391,10 @@
 #about .detail-label {
   color: var(--accent);
 }
-/* Work section scrollable */
+/* Work section: no viewport lock */
 #work {
-  height: 100vh;
-  overflow-y: scroll;
+  height: auto;
+  overflow: visible;
 }
 
 /* Work header white and larger */
@@ -430,9 +430,10 @@
 }
 /* Preview: normal page scroll so Work + film links are reachable */
 html, body {
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: visible;
   height: auto;
+  min-height: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
 #about {
@@ -525,3 +526,46 @@ nav {
 /* PREVIEW film-card hint */
 .film-card { display: block !important; }
 .film-card .film-title::after { content: " →"; opacity: 0.5; }
+
+
+/* MOBILE SCROLL FIX v3 */
+html, body {
+  overflow: visible !important;
+  height: auto !important;
+  max-height: none !important;
+  position: static !important;
+  overscroll-behavior: auto !important;
+}
+#about, #work, .about-inner {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+.hero {
+  height: auto !important;
+  min-height: 70vh;
+  padding-bottom: 48px !important;
+}
+.preview-jumps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+.preview-jumps a {
+  display: inline-block;
+  padding: 10px 14px;
+  border: 1px solid #525252;
+  color: #E4DFD7 !important;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.preview-jumps a:hover { border-color: #E4DFD7; }
+@media (max-width: 720px) {
+  .nav-links { display: none !important; }
+  .hero { min-height: 60vh; }
+  .about-inner { grid-template-columns: 1fr !important; height: auto !important; }
+  .about-portrait { height: 40vh !important; }
+}
